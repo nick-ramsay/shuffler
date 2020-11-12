@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Shuffler</title>
+    <link rel="stylesheet" href="./assets/styles/style.css">
+</head>
+
+<body>
+    <h1>Welcome to the Shuffler!</h1>
+    <p>Enter some values below. Your browser will temporarily save the values and this application's JavaScript will
+        randomly shuffle them as they are entered. Refreshing the page will clear the values!</p>
+    <div class="shuffler-controls">
+        <div class="shuffler-row">
+            <label for="fname">Add an Item to Shuffle</label>
+            <input type="text" id="shuffle-item" name="shuffle-item">
+        </div>
+        <div class="shuffler-row">
+            <button id="shuffle-btn">Shuffle</button>
+            <button id="clear-btn">Clear</button>
+        </div>
+    </div>
+    <script src="./assets/js/shuffle.js"></script>
+</body>
+
+</html>
