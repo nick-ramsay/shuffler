@@ -1,8 +1,10 @@
+const addBtn = document.getElementById("add-btn");
 const shuffleBtn = document.getElementById("shuffle-btn");
 const clearBtn = document.getElementById("clear-btn");
 const addItemInput = document.getElementById("shuffle-item");
 const shuffledItemDiv = document.getElementById("shuffled-items");
 let items = [];
+let usedIndexes = [];
 
 const addItem = () => {
     addItemInput.focus();
@@ -13,6 +15,7 @@ const addItem = () => {
         items.push(addItemInputValue);
 
         for (let i = 0; i < items.length; i++) {
+            usedIndexes.push(i);
             let newItemEl = document.createElement('p');
             newItemEl.id = "item" + i;
             newItemEl.innerHTML = (i + 1) + ". " + items[i];
@@ -31,5 +34,11 @@ const clearItems = () => {
     addItem();
 }
 
+const shuffleItems = () => {
+    console.log("Shuffle Items clicked...");
+    console.log(items.length);
+}
+
 clearBtn.addEventListener("click", clearItems);
-shuffleBtn.addEventListener("click", addItem);
+addBtn.addEventListener("click", addItem);
+shuffleBtn.addEventListener("click",shuffleItems);
