@@ -8,31 +8,25 @@ let items = [];
 
 const populateList = () => {
 
-    if (localStorage.items === undefined) {
-        localStorage.items = ["null"];
-    }
-
-    let currentItemList = localStorage.items.split(',');
-    console.log(localStorage.items);
+    let currentItemList;
+    localStorage.items === undefined ? currentItemList = [] : currentItemList = localStorage.items.split(',');
     document.getElementById("shuffled-items").innerHTML = "";
 
-    if (currentItemList[0] !== "null") {
-        for (let i = 0; i < currentItemList.length; i++) {
-            let newItemEl = document.createElement('p');
-            newItemEl.id = "item" + i;
-            newItemEl.innerHTML = (i + 1) + ". " + currentItemList[i];
+    for (let i = 0; i < currentItemList.length; i++) {
+        let newItemEl = document.createElement('p');
+        newItemEl.id = "item" + i;
+        newItemEl.innerHTML = (i + 1) + ". " + currentItemList[i];
 
-            document.getElementById("shuffled-items").appendChild(newItemEl);
-        }
+        document.getElementById("shuffled-items").appendChild(newItemEl);
     }
 }
 
 const addItem = () => {
     addItemInput.focus();
-    
-    let currentItems = localStorage.items.split(',');
 
-    currentItems[0] === "null" && currentItems.length > 1 ? currentItems.splice(0):"";
+    let currentItems;
+
+    localStorage.items === undefined ? currentItems = [] : currentItems = localStorage.items.split(',');
 
     let addItemInputValue = addItemInput.value;
 
@@ -53,7 +47,7 @@ const clearItems = () => {
     document.getElementById("shuffled-items").innerHTML = "";
     items = [];
 
-    localStorage.setItem("items", "null");
+    localStorage.removeItem("items");
 
     populateList();
 }
@@ -63,21 +57,24 @@ const shuffleItems = () => {
     let usedIndexes = [];
     let currentIndex;
 
-    for (let i = 0; usedIndexes.length < items.length; i++) {
-        currentIndex = Math.floor((Math.random() * items.length));
+    if (localStorage.items !== undefined) {
 
-        if (usedIndexes.indexOf(currentIndex) === -1) {
-            usedIndexes.push(currentIndex);
-            orderedItems.push(items[currentIndex]);
+        for (let i = 0; usedIndexes.length < localStorage.items.split(',').length; i++) {
+            currentIndex = Math.floor((Math.random() * localStorage.items.split(',').length));
+
+            if (usedIndexes.indexOf(currentIndex) === -1) {
+                usedIndexes.push(currentIndex);
+                orderedItems.push(localStorage.items.split(',')[currentIndex]);
+            }
+
         }
 
+        items = orderedItems;
+
+        localStorage.setItem("items", orderedItems);
+
+        populateList();
     }
-
-    items = orderedItems;
-
-    localStorage.setItem("items", items);
-
-    populateList();
 }
 
 clearBtn.addEventListener("click", clearItems);
