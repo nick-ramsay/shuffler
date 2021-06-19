@@ -14,6 +14,16 @@ h1 {
     margin:0;
 }
 
+input {
+    min-height: 20px;
+}
+
+.shuffle-list-header{
+    margin: 8px 0px;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
 .jumbotron {
     padding: 10px;
     background-color: navy;
@@ -29,7 +39,7 @@ button {
     border-style: solid;
     border-radius: 4px;
     margin: 0 2px;
-    padding: 2px 4px;
+    padding: 4px 4px;
 }
 
 button:hover {
@@ -47,7 +57,7 @@ button:focus {
     color: white;
 }
 
-.btn-navy {
+.btn-blue {
     border-color: navy;
     background-color: navy;
     color: white;
@@ -57,6 +67,15 @@ button:focus {
     border-color: red;
     background-color: red;
     color: white;
+}
+
+.link-icon {
+    height: 25px;
+    width: 25px;
+}
+
+.link-icon:hover {
+    cursor: pointer;
 }
 
 #shuffled-items {

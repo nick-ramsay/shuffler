@@ -2,7 +2,7 @@ const addBtn = document.getElementById("add-btn");
 const shuffleBtn = document.getElementById("shuffle-btn");
 const clearBtn = document.getElementById("clear-btn");
 const addItemInput = document.getElementById("shuffle-item");
-const shuffledItemDiv = document.getElementById("shuffled-items");
+const shuffledItemDiv = document.getElementById("shuffled-list");
 
 let items = [];
 
@@ -10,14 +10,14 @@ const populateList = () => {
 
     let currentItemList;
     localStorage.items === undefined ? currentItemList = [] : currentItemList = localStorage.items.split(',');
-    document.getElementById("shuffled-items").innerHTML = "";
+    document.getElementById("shuffled-list").innerHTML = "";
 
     for (let i = 0; i < currentItemList.length; i++) {
         let newItemEl = document.createElement('p');
         newItemEl.id = "item" + i;
         newItemEl.innerHTML = (i + 1) + ". " + currentItemList[i];
 
-        document.getElementById("shuffled-items").appendChild(newItemEl);
+        document.getElementById("shuffled-list").appendChild(newItemEl);
     }
 }
 
@@ -31,7 +31,7 @@ const addItem = () => {
     let addItemInputValue = addItemInput.value;
 
     if (addItemInputValue !== "") {
-        document.getElementById("shuffled-items").innerHTML = "";
+        document.getElementById("shuffled-list").innerHTML = "";
         currentItems.push(addItemInputValue);
     }
 
@@ -44,7 +44,7 @@ const addItem = () => {
 
 const clearItems = () => {
     addItemInput.focus();
-    document.getElementById("shuffled-items").innerHTML = "";
+    document.getElementById("shuffled-list").innerHTML = "";
     items = [];
 
     localStorage.removeItem("items");

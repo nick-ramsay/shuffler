@@ -13,6 +13,8 @@
         <h1>Welcome to the Shuffler!</h1>
         <p>Enter some values below. Your browser will temporarily save the values and this application's JavaScript will
             randomly shuffle them as they are entered. Refreshing the page will clear the values!</p>
+        <a href="https://github.com/nick-ramsay/shuffler" target="_blank"><img class="link-icon"
+                title="Visit this page's GitHub repo!" src="assets/images/GitHub-Mark-Light-120px-plus.png"></a>
     </div>
     <div class="shuffler-controls">
         <div class="shuffler-row">
@@ -20,13 +22,16 @@
         </div>
         <div class="shuffler-row">
             <input type="text" id="shuffle-item" name="shuffle-item">
-            <button id="add-btn" class="btn-blue">&#x002B;</button>
+            <button id="add-btn" class="btn-blue">Add</button>
         </div>
         <div class="shuffler-row">
             <button id="shuffle-btn" class="btn-green">Shuffle</button>
             <button id="clear-btn" class="btn-red">Clear</button>
         </div>
         <div id="shuffled-items" class="shuffler-row">
+            <h4 class="shuffle-list-header">Your List...</h4>
+            <div id="shuffled-list" class="shuffler-row">
+            </div>
         </div>
     </div>
     <script src="./assets/js/shuffle.js"></script>
