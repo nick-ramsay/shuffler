@@ -1,6 +1,23 @@
 body {
     text-align: center;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
+    background-color: whitesmoke;
+    margin:0;
+    -webkit-appearance: none;
+}
+
+body:focus {
+    outline: none;
+}
+
+h1 {
+    margin:0;
+}
+
+.jumbotron {
+    padding: 10px;
+    background-color: navy;
+    color: white;
 }
 
 .shuffler-row {
@@ -9,12 +26,19 @@ body {
 }
 
 button {
-    
     border-style: solid;
+    border-radius: 4px;
+    margin: 0 2px;
+    padding: 2px 4px;
 }
 
 button:hover {
     cursor: pointer;
+}
+
+button:focus {
+    outline:none;
+    box-shadow: 2px 2px 3px grey;
 }
 
 .btn-green {
@@ -23,9 +47,9 @@ button:hover {
     color: white;
 }
 
-.btn-blue {
-    border-color: blue;
-    background-color: blue;
+.btn-navy {
+    border-color: navy;
+    background-color: navy;
     color: white;
 }
 
@@ -33,4 +57,14 @@ button:hover {
     border-color: red;
     background-color: red;
     color: white;
+}
+
+#shuffled-items {
+    background-color: white;
+    width: 80%;
+    min-height: 100px;
+    margin: 0 10% 10% 10%;
+    padding: 1px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 3px grey;
 }
